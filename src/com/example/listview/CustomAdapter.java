@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.List;
 
 import android.content.Context;
@@ -21,7 +22,8 @@ import android.widget.TextView;
 class CustomAdapter extends ArrayAdapter< BikeData > {
 
 	// TODO create your cache if you choose
-
+	private HashMap< String, Bitmap >	bikeImageMap;
+	
 	private static final String	TAG								= "CustomAdapter";
 	private static final String	DOLLARSIGN				= "$ ";
 	private List< BikeData >		data;
@@ -58,6 +60,7 @@ class CustomAdapter extends ArrayAdapter< BikeData > {
 		this.context = context;
 		this.URL_of_JSON_host = URL_of_JSON_host;
 		li = LayoutInflater.from(context);
+		bikeImageMap = new HashMap< String, Bitmap >();
 	}
 
 	@Override
@@ -90,21 +93,12 @@ class CustomAdapter extends ArrayAdapter< BikeData > {
 		
 		
 		// TODO optional check to see if image is in cache first
-		// Bitmap image = .. your code here
-		//if (image != null){
-		// //TODO found it in cache set the image in the row in the listview
-		// }
-		// else {
-		// 
-		//TODO at this point you launch an async task to go and grab the image,
-		// make sure you pass along a pointer to the
-		// exact imageview that is supposed to be modified (its the one in this
-		// row). When the async task enters onPostexecute
-		// //with a bitmap it will have a pointer to the place where the picture
-		// should be displayed. Sorta like a forwarding
-		// address
-		new AsyncImageGetter().execute(  holder );
-		// }
+		Bitmap image = bikeImageMap.get( URL_of_JSON_host + holder.pictureID );
+		if (image != null){
+			holder.imageView1.setImageBitmap( image );
+		} else {
+			new AsyncImageGetter().execute(  holder );
+		}
 		// give it to listview for display
 		return v;
 	}
@@ -114,6 +108,7 @@ class CustomAdapter extends ArrayAdapter< BikeData > {
 	 */
 	public void setNewURL( String bikeURL ) {
 		URL_of_JSON_host = bikeURL;
+		bikeImageMap = new HashMap< String, Bitmap >();
 	}
 
 	/**
@@ -168,6 +163,7 @@ class CustomAdapter extends ArrayAdapter< BikeData > {
 			if( result != null || result.getWidth() > 0) {
 				ImageView iv = holder.imageView1;
 				iv.setImageBitmap( result );
+				bikeImageMap.put( URL_of_JSON_host + holder.pictureID, result );
 			}
 		}
 	}

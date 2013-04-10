@@ -32,7 +32,7 @@ public class BikeData {
 		return "Company: " + company + BikeData.NL + 
 				"Model: " + model + BikeData.NL + 
 				"Location: " + location + BikeData.NL + 
-				"Price: " + priceString + BikeData.NL + 
+				"Price: $" + priceString + BikeData.NL + 
 				"Date: " + date + BikeData.NL + 
 				"Description: " + description	+ BikeData.NL + 
 				"Link: " + link;

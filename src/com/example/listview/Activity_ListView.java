@@ -38,6 +38,7 @@ public class Activity_ListView extends ListActivity implements
 	private static final String				TAG							= "Activity_ListView";
 	private static final String				BAD_CONNECTION	= "Can not Connect";
 	private static final String				BAD_URL					= "Malformed URL";
+	private static final CharSequence	ERR_TITLE				= "Error!!";
 
 	OnSharedPreferenceChangeListener	listener;
 	OnItemSelectedListener						mySpinnerListener;
@@ -48,7 +49,6 @@ public class Activity_ListView extends ListActivity implements
 	private List< BikeData >					bikeList;
 	private SharedPreferences					myPreference;
 	private CustomAdapter							myAdapter;
-	private AsyncJSONGetter						jsonGetter;
 
 	@Override
 	protected void onCreate( Bundle savedInstanceState ) {
@@ -76,18 +76,18 @@ public class Activity_ListView extends ListActivity implements
 			public void onNothingSelected( AdapterView< ? > arg0 ) {}
 		};
 
+		errAlert = new AlertDialog.Builder( this );
+    errAlert.setTitle( ERR_TITLE );
 
 		bikeURL = getString( R.string.tetonURL ) + BIKEJSON;
 		bikeList = new ArrayList< BikeData >();
-
-		jsonGetter = new AsyncJSONGetter();
 		
 		myAdapter = new CustomAdapter( this, R.layout.listview_row_layout,
 				bikeList, getString( R.string.tetonURL ) );
 
 		setListAdapter( myAdapter );
 		
-		jsonGetter.execute( bikeURL );
+		new AsyncJSONGetter().execute( bikeURL );
 	}
 
 	@Override
@@ -188,10 +188,11 @@ public class Activity_ListView extends ListActivity implements
 
 		protected void onPostExecute( String result ) {
 
-			bikeList = JSONHelper.parseAll( result );
-			myAdapter.clear();
-			myAdapter.addAll( bikeList );
-			
+			if( bikeList != null || bikeList.isEmpty() ) {
+				bikeList = JSONHelper.parseAll( result );
+				myAdapter.clear();
+				myAdapter.addAll( bikeList );
+			}
 			if ( !errString.isEmpty() ) {
 				errAlert.setMessage( errString );
 				errAlert.create().show();
@@ -210,7 +211,7 @@ public class Activity_ListView extends ListActivity implements
 			if ( bikeURL.equals( BIKEJSON ) ) {
 
 			} else {
-				jsonGetter.execute( bikeURL );
+				new AsyncJSONGetter().execute( bikeURL );
 			}
 		}
 	}
