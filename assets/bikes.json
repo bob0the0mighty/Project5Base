@@ -1,0 +1,305 @@
+{
+   "Bikes":[
+      {
+         "Company":"Soma",
+         "Model":"Doublecross",
+         "Location":"",
+         "Price":295.00,
+         "Date":"Feb 24, 2013",
+         "Description":"Soma Doublecross frameset carbon fork like new",
+         "Picture":"1.jpg",
+         "Link":"Link To website"
+      },
+      {
+         "Company":"Soma",
+         "Model":"Smoothie",
+         "Location":"",
+         "Price":500.00,
+         "Date":"Feb 18, 2013",
+         "Description":"2012 Soma Smoothie Frameset, 52 cm",
+         "Picture":"2.jpg",
+         "Link":"Link To website"
+      },
+      {
+         "Company":"Soma",
+         "Model":"DELANCEY",
+         "Location":"CA",
+         "Price":450.00,
+         "Date":"Jan 25, 2013",
+         "Description":"SOMA DELANCEY Green Fixie Frame and Fork NEW 54cm x 54cm SoundCycles Los Angeles",
+         "Picture":"3.jpg",
+         "Link":"Link To website"
+      },
+      {
+         "Company":"Soma",
+         "Model":"Doublecross",
+         "Location":"VA",
+         "Price":295.00,
+         "Date":"Feb 12, 2013",
+         "Description":"New SOMA Mini Velo 48cm 18 Speed Tiagra 20\" Wheels Leather Saddle",
+         "Picture":"4.jpg",
+         "Link":"Link To website"
+      },
+      {
+         "Company":"Soma",
+         "Model":"ES",
+         "Location":"OR",
+         "Price":575.00,
+         "Date":"Jan 25, 2013",
+         "Description":"Soma ES 58cm Deep Red Tange Prestige 7spd Mavic/XT",
+         "Picture":"5.jpg",
+         "Link":"Link To website"
+      },
+      {
+         "Company":"Soma",
+         "Model":"Double Cross",
+         "Location":"WA",
+         "Price":122.00,
+         "Date":"Jan 24, 2013",
+         "Description":"Soma Double Cross Ivory 56cm cyclocross bike frameset with ritchie headset",
+         "Picture":"6.jpg",
+         "Link":"Link To website"
+      },
+      {
+         "Company":"Soma",
+         "Model":"Double Cross",
+         "Location":"CA",
+         "Price":600.00,
+         "Date":"Jan 24, 2013",
+         "Description":"Soma Double Cross Ivory 56cm cyclocross bike frameset with ritchie headset",
+         "Picture":"7.jpg",
+         "Link":"Link To website"
+      },
+      {
+         "Company":"Soma",
+         "Model":"Stanyan",
+         "Location":"IL",
+         "Price":550.00,
+         "Date":"Jan 22, 2013",
+         "Description":"Soma Stanyan Lugged Steel Road Bike Frame set 56cm, Shimano, Nitto, Velo Orange",
+         "Picture":"8.jpg",
+         "Link":"Link To website"
+      },
+      {
+         "Company":"Soma",
+         "Model":"Stanyan",
+         "Location":"PA",
+         "Price":660.99,
+         "Date":"Jan 22, 2013",
+         "Description":"Soma Stanyan Metalic Smoke 60cm",
+         "Picture":"9.jpg",
+         "Link":"Link To website"
+      },
+      {
+         "Company":"Soma",
+         "Model":"B-Side",
+         "Location":"SC",
+         "Price":750,
+         "Date":"Jan 20, 2013",
+         "Description":"Soma B-Side 650 Hardtail Mountain Bike size 16.5",
+         "Picture":"10.jpg",
+         "Link":"Link To website"
+      },
+      {
+         "Company":"Soma",
+         "Model":"DOUBLE CROSS",
+         "Location":"MT",
+         "Price":1800,
+         "Date":"an 19, 2013",
+         "Description":"SOMA DOUBLE CROSS BIKE, 52CM, Custom build: Chris King, Sram Force, XX, Brooks",
+         "Picture":"11.jpg",
+         "Link":"Link To website"
+      },
+      {
+         "Company":"Soma",
+         "Model":"Smoothie",
+         "Location":"PA",
+         "Price":400,
+         "Date":"Jan 19, 2013",
+         "Description":"Soma Smoothie Road Frame 54cm, 56, 58cm, 60cm Pearl White Tange CroMo",
+         "Picture":"12.jpg",
+         "Link":"Link To website"
+      },
+      {
+         "Company":"Soma",
+         "Model":"Stanyan",
+         "Location":"OR",
+         "Price":850,
+         "Date":"Jan 19, 2013",
+         "Description":"2011 Soma Stanyan",
+         "Picture":"13.jpg",
+         "Link":"Link To website"
+      },
+      {
+        "Company":"Soma",
+         "Model":"San Marcos",
+         "Location":"PA",
+         "Price":798.99,
+         "Date":"Jan 19, 2013",
+         "Description":"Soma San Marcos Pearl Blue 59cm",
+         "Picture":"14.jpg",
+         "Link":"Link To website"
+      },
+      {
+         "Company":"Soma",
+         "Model":"Analog",
+         "Location":"PA",
+         "Price":438.99,
+         "Date":"Jan 15, 2013",
+         "Description":"Soma Analog Pacific Blue 19",
+         "Picture":"15.jpg",
+         "Link":"Link To website"
+      },
+      {
+         "Company":"Trek",
+         "Model":"970",
+         "Location":"CA",
+         "Price":249.99,
+         "Date":"Jan 16, 2013",
+         "Description":"Vintage Trek 970 Mountain Bike Steel Frame very light! GREAT SHAPE!",
+         "Picture":"16.jpg",
+         "Link":"Link To website"
+      },
+      {
+         "Company":"Trek",
+         "Model":"970",
+         "Location":"WI",
+         "Price":2499.99,
+         "Date":"Dec 03, 2012",
+         "Description":"Used 1997 Trek 9700 OCLV Mountain Bicycle Made In Waterloo WI Shimano LX Bike",
+         "Picture":"17.jpg",
+         "Link":"Link To website"
+      },
+      {
+         "Company":"Trek",
+         "Model":"970",
+         "Location":"WI",
+         "Price":750.00,
+         "Date":"Nov 21, 2012",
+         "Description":"rare 1993 18 in trek 970 LHT clone dx xt terry barcon expidition touring lugged",
+         "Picture":"18.jpg",
+         "Link":"Link To website"
+      }
+      ,
+      {
+         "Company":"Surly",
+         "Model":"LHT",
+         "Location":"UT",
+         "Price":1000,
+         "Date":"Mar 16, 2013",
+         "Description":"Surly Long Haul Trucker 60cm",
+         "Picture":"19.jpg",
+         "Link":"Link To website"
+      },
+      {
+         "Company":"Surly",
+         "Model":"LHT",
+         "Location":"CA",
+         "Price":0.99,
+         "Date":"an 25, 2013",
+         "Description":"62cm Surly Long Haul Trucker frameset",
+         "Picture":"20.jpg",
+         "Link":"Link To website"
+      },
+      {
+         "Company":"Surly",
+         "Model":"LHT",
+         "Location":"MT",
+         "Price":200,
+         "Date":"Jan 25, 2013",
+         "Description":"2011 SURLY LONG HAUL TRUCKER frame 54cm 26 wheels",
+         "Picture":"21.jpg",
+         "Link":"Link To website"
+      },
+      {
+         "Company":"Surly",
+         "Model":"LHT",
+         "Location":"CA",
+         "Price":360.05,
+         "Date":"Jan 24, 2013",
+         "Description":"56cm Surly Long Haul Trucker 2012",
+         "Picture":"22.jpg",
+         "Link":"Link To website"
+      },
+      {
+         "Company":"Surly",
+         "Model":"LHT",
+         "Location":"TX",
+         "Price":610,
+         "Date":"Jan 24, 2013",
+         "Description":"2012 Surly Long Haul Trucker Deluxe + Travel Case",
+         "Picture":"23.jpg",
+         "Link":"Link To website"
+      },
+      {
+         "Company":"Surly",
+         "Model":"LHT",
+         "Location":"WA",
+         "Price":200,
+         "Date":"Jan 24, 2013",
+         "Description":"surly long haul trucker, 56cm used",
+         "Picture":"24.jpg",
+         "Link":"Link To website"
+      },
+      {
+         "Company":"Surly",
+         "Model":"LHT",
+         "Location":"TN",
+         "Price":1075,
+         "Date":"Jan 22, 2013",
+         "Description":"Surly Long Haul Trucker, 56cm, with Fenders, HD Rack, New bar tape, SUPERB!",
+         "Picture":"25.jpg",
+         "Link":"Link To website"
+      },
+      {
+         "Company":"Surly",
+         "Model":"LHT",
+         "Location":"NY",
+         "Price":999.99,
+         "Date":"Jan 22, 2013",
+         "Description":"50cm Surly Long Haul Trucker 26\" Wheels NEW COMPLETE Road Touring Steel Bike",
+         "Picture":"26.jpg",
+         "Link":"Link To website"
+      },
+      {
+         "Company":"Surly",
+         "Model":"LHT",
+         "Location":"WI",
+         "Price":2400,
+         "Date":"Jan 20,2013",
+         "Description":"New Surly Long Haul Trucker Deluxe Complete 56cm,26 Touring Bicycle",
+         "Picture":"27.jpg",
+         "Link":"Link To website"
+      },
+      {
+         "Company":"Surly",
+         "Model":"LHT",
+         "Location":"MA",
+         "Price":900,
+         "Date":"Jan 18,2013",
+         "Description":"2011 Surly Long Haul Trucker 60cm, Blue. Many upgrades!!!",
+         "Picture":"28.jpg",
+         "Link":"Link To website"
+      },
+      {
+         "Company":"Surly",
+         "Model":"LHT",
+         "Location":"WI",
+         "Price":875.00,
+         "Date":"Jan 18,2013",
+         "Description":"Surly Long Haul Trucker 52cm - NEW",
+         "Picture":"29.jpg",
+         "Link":"Link To website"
+      },
+      {
+         "Company":"Surly",
+         "Model":"LHT",
+         "Location":"NV",
+         "Price":676.66,
+         "Date":"Jan 13,2013",
+         "Description":"2011 Surly Long Haul Trucker deluxe Frame set 58cm 26 midnight blue",
+         "Picture":"30.jpg",
+         "Link":"Link To website"
+      }
+   ]
+}

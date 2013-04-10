@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+	<item
+        android:id="@+id/spinner"
+        android:showAsAction="always"
+        android:actionViewClass="android.widget.Spinner" ></item>"
+    <!-- the following will appear in the action bar foe API 3.0 and above -->
+    <item
+        android:id="@+id/action_settings"
+        android:icon="@drawable/action_settings1"
+        android:showAsAction="always"
+        android:title="Settings">
+    </item>
+
+
+</menu>
