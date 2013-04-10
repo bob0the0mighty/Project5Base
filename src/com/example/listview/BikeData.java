@@ -1,6 +1,7 @@
 package com.example.listview;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -15,6 +16,7 @@ public class BikeData {
 	String											model;
 	String											location;
 	double											price;
+	String											priceString;
 	String											date;
 	String											description;
 	String											picture;
@@ -27,9 +29,13 @@ public class BikeData {
 	 */
 	@Override
 	public String toString() {
-		return company + BikeData.NL + model + BikeData.NL + location + BikeData.NL
-				+ price + BikeData.NL + date + BikeData.NL + description + BikeData.NL
-				+ picture + BikeData.NL + link;
+		return "Company: " + company + BikeData.NL + 
+				"Model: " + model + BikeData.NL + 
+				"Location: " + location + BikeData.NL + 
+				"Price: " + priceString + BikeData.NL + 
+				"Date: " + date + BikeData.NL + 
+				"Description: " + description	+ BikeData.NL + 
+				"Link: " + link;
 	}
 
 	public BikeData( JSONObject bike ) {
@@ -38,6 +44,7 @@ public class BikeData {
 			model = bike.getString( "Model" );
 			location = bike.getString( "Location" );
 			price = bike.getDouble( "Price" );
+			priceString = String.format( "%1.2f", price );
 			date = bike.getString( "Date" );
 			description = bike.getString( "Description" );
 			picture = bike.getString( "Picture" );
@@ -49,14 +56,16 @@ public class BikeData {
 	}
 
 	public static List< String > getComparatorNames() {
-		String[] comparator_names = {"company","model","price","date","company"};
-		List< String > comparators = new ArrayList< String >(comparator_names.length);
-		for(String comp : comparator_names) {
-			comparators.add(comp);
+		String[] comparator_names = { "company", "model", "price", "date" };
+		List< String > comparators = new ArrayList< String >(
+				comparator_names.length );
+		for ( String comp : comparator_names ) {
+			comparators.add( comp );
 		}
+		Collections.sort( comparators );
 		return comparators;
 	}
-	
+
 	public static Comparator< BikeData >	CompanyComparator			= new Comparator< BikeData >() {
 
 																																@Override

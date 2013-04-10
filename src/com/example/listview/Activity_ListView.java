@@ -69,7 +69,7 @@ public class Activity_ListView extends ListActivity implements
 			public void onItemSelected( AdapterView< ? > arg0, View selectedItemView,
 					int position, long id ) {
 				Log.d( TAG, "Spinner changed " + selectedItemView.toString() );
-				// TODO resort List
+				myAdapter.sortList( position );
 			}
 
 			@Override
@@ -83,7 +83,7 @@ public class Activity_ListView extends ListActivity implements
 		jsonGetter = new AsyncJSONGetter();
 		
 		myAdapter = new CustomAdapter( this, R.layout.listview_row_layout,
-				bikeList, bikeURL );
+				bikeList, getString( R.string.tetonURL ) );
 
 		setListAdapter( myAdapter );
 		
@@ -98,8 +98,6 @@ public class Activity_ListView extends ListActivity implements
 		// get a reference to the action bar spinner
 		Spinner s = (Spinner) menu.findItem( R.id.spinner ).getActionView();
 		
-		// TODO create a SpinnerAdapter for the spinner and bind it to the
-		// spinner
 		SpinnerAdapter mSpinnerAdapter = new mySpinnerAdapter( this, BikeData.getComparatorNames() );
 		s.setAdapter(mSpinnerAdapter);
 
@@ -140,10 +138,10 @@ public class Activity_ListView extends ListActivity implements
 	protected void onListItemClick( ListView l, View v, int position, long id ) {
 		super.onListItemClick( l, v, position, id );
 		Toast.makeText( this, l.getItemAtPosition( position ).toString(),
-				Toast.LENGTH_LONG ).show();
+				Toast.LENGTH_SHORT ).show();
 	}
 
-	public class AsyncJSONGetter extends AsyncTask< String, Void, String > {
+	private class AsyncJSONGetter extends AsyncTask< String, Void, String > {
 
 		@Override
 		protected String doInBackground( String... arg0 ) {

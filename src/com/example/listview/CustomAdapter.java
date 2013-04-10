@@ -1,8 +1,16 @@
 package com.example.listview;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +27,8 @@ class CustomAdapter extends ArrayAdapter< BikeData > {
 	private List< BikeData >		data;
 	Context											context;
 	private String							URL_of_JSON_host	= null;
-
+	private LayoutInflater li;
+	
 	/**
 	 * @author lynn class that holds pointers to all the views in
 	 *         listview_row_layout.xml you can hold additional data as well, for
@@ -48,20 +57,17 @@ class CustomAdapter extends ArrayAdapter< BikeData > {
 		this.data = data;
 		this.context = context;
 		this.URL_of_JSON_host = URL_of_JSON_host;
+		li = LayoutInflater.from(context);
 	}
 
 	@Override
 	public View getView( int position, View convertView, ViewGroup parent ) {
 		View v = convertView;
-		// TODO fill this out, use both Viewholder and convertview
-
-		// TODO set your holders data
+		ViewHolder holder = new ViewHolder();
+		
 		if ( v == null ) {
-			// set the position in the list this image will belong to
-			LayoutInflater li = LayoutInflater.from(context);
 			v = li.inflate( R.layout.listview_row_layout, null );
 
-			ViewHolder holder = new ViewHolder();
 			holder.imageView1 = (ImageView) v
 					.findViewById( R.id.imageView1 );
 			holder.Model = (TextView) v.findViewById( R.id.Model );
@@ -75,27 +81,29 @@ class CustomAdapter extends ArrayAdapter< BikeData > {
 		
 		BikeData bike = data.get( position );
 		if(bike != null){
-			ViewHolder holder = (ViewHolder)v.getTag();
+			holder = (ViewHolder)v.getTag();
 			holder.Model.setText( bike.model );
 			holder.Price.setText( "$" + bike.price );
 			holder.Description.setText( bike.description );
 			holder.pictureID = bike.picture;
 		}
 		
+		
 		// TODO optional check to see if image is in cache first
 		// Bitmap image = .. your code here
-
-		// if (image != null){
+		//if (image != null){
 		// //TODO found it in cache set the image in the row in the listview
 		// }
 		// else {
-		// //TODO at this point you launch an async task to go and grab the image,
+		// 
+		//TODO at this point you launch an async task to go and grab the image,
 		// make sure you pass along a pointer to the
-		// //exact imageview that is supposed to be modified (its the one in this
+		// exact imageview that is supposed to be modified (its the one in this
 		// row). When the async task enters onPostexecute
 		// //with a bitmap it will have a pointer to the place where the picture
 		// should be displayed. Sorta like a forwarding
-		// //address
+		// address
+		new AsyncImageGetter().execute(  holder );
 		// }
 		// give it to listview for display
 		return v;
@@ -105,16 +113,62 @@ class CustomAdapter extends ArrayAdapter< BikeData > {
 	 * @param string
 	 */
 	public void setNewURL( String bikeURL ) {
-		
+		URL_of_JSON_host = bikeURL;
 	}
 
 	/**
 	 * @param string
 	 */
 	public void sortList( int pos ) {
-		// TODO pos defines field to sort on
-		// TODO based on that sort your dataset and then reload
-
+		switch( pos ) {
+			case 0:
+				sort( BikeData.CompanyComparator );
+				break;
+			case 1:
+				sort( BikeData.DateComparator );
+				break;
+			case 2:
+				sort( BikeData.ModelComparator);
+				break;
+			default:
+				sort(BikeData.PriceComparator);
+		}
 	}
 	
+	private class AsyncImageGetter extends AsyncTask<ViewHolder, Void, Bitmap> {
+		ViewHolder holder;
+		
+		@Override
+		protected Bitmap doInBackground(ViewHolder... arg0) {
+			holder = arg0[0];
+			Bitmap myBitmap = null;
+			try {
+				URL url = new URL( URL_of_JSON_host + arg0[0].pictureID );
+		    try {
+		    	HttpURLConnection connection;
+		     	connection = (HttpURLConnection) url.openConnection();
+		     	connection.setDoInput(true);
+			    connection.connect();
+			    InputStream input = connection.getInputStream();
+			    myBitmap = BitmapFactory.decodeStream(input);
+		     } catch (IOException e) {
+		     	e.printStackTrace();
+		     	System.err.println("IO Exception on HTTP connection");
+		     	//return BitmapFactory.decodeResource( context.getResources(), R.drawable.ic_launcher );
+		    } 
+			} catch (MalformedURLException e) {
+				e.printStackTrace();
+				//return BitmapFactory.decodeResource( context.getResources(), R.drawable.ic_launcher );
+			}
+			return myBitmap;
+		}
+
+		protected void onPostExecute(Bitmap result) {
+			//Bitmap image = new BitmapDrawable( context.getResources() ,result);
+			if( result != null || result.getWidth() > 0) {
+				ImageView iv = holder.imageView1;
+				iv.setImageBitmap( result );
+			}
+		}
+	}
 }

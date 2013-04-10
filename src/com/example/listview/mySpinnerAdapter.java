@@ -1,6 +1,5 @@
 package com.example.listview;
 
-import java.util.Collections;
 import java.util.List;
 
 import android.content.Context;
@@ -18,7 +17,6 @@ public class mySpinnerAdapter implements SpinnerAdapter {
 	public mySpinnerAdapter(Context context, List< String > sortList) {
 		myList = sortList;
 		myContext = context;
-		Collections.sort( myList );
 	}
 	
 	@Override

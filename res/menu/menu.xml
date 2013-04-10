@@ -3,7 +3,8 @@
 	<item
         android:id="@+id/spinner"
         android:showAsAction="always"
-        android:actionViewClass="android.widget.Spinner" ></item>"
+        android:actionViewClass="android.widget.Spinner" >
+	</item>
     <!-- the following will appear in the action bar foe API 3.0 and above -->
     <item
         android:id="@+id/action_settings"
